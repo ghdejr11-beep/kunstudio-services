@@ -1,0 +1,121 @@
+<!--
+  KunStudio Sales Q&A Bot — drop-in widget
+  Usage: paste this snippet right before </body> on your site.
+  Set window.KS_QA_ENDPOINT to your server.
+-->
+<script>
+(function() {
+  var ENDPOINT = window.KS_QA_ENDPOINT || "https://your-bot.example.com";
+  var sessionId = Math.random().toString(36).slice(2);
+
+  var css = ".ks-qa-btn{position:fixed;bottom:24px;right:24px;background:#0b1d3a;color:#fff;"
+    + "padding:14px 18px;border-radius:999px;font:600 14px system-ui;cursor:pointer;"
+    + "box-shadow:0 8px 24px rgba(0,0,0,.18);z-index:9999;border:none}"
+    + ".ks-qa-panel{position:fixed;bottom:96px;right:24px;width:380px;max-height:70vh;"
+    + "background:#fff;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.18);"
+    + "display:none;flex-direction:column;z-index:9999;overflow:hidden;font:14px system-ui}"
+    + ".ks-qa-panel.open{display:flex}"
+    + ".ks-qa-header{background:#0b1d3a;color:#fff;padding:14px 18px;font-weight:600}"
+    + ".ks-qa-body{flex:1;overflow-y:auto;padding:14px 18px;display:flex;flex-direction:column;gap:10px}"
+    + ".ks-qa-msg{padding:10px 12px;border-radius:12px;max-width:88%;line-height:1.45}"
+    + ".ks-qa-msg.user{align-self:flex-end;background:#0b1d3a;color:#fff}"
+    + ".ks-qa-msg.bot{align-self:flex-start;background:#f1f3f8;color:#0b1d3a}"
+    + ".ks-qa-src{font-size:11px;color:#536189;margin-top:6px}"
+    + ".ks-qa-src a{color:#536189;text-decoration:underline}"
+    + ".ks-qa-input{display:flex;border-top:1px solid #ececf2;padding:10px}"
+    + ".ks-qa-input input{flex:1;border:none;outline:none;padding:8px 10px;font:14px system-ui}"
+    + ".ks-qa-input button{background:#c9a857;border:none;color:#0b1d3a;font-weight:700;"
+    + "padding:8px 14px;border-radius:8px;cursor:pointer}";
+
+  var style = document.createElement("style"); style.textContent = css;
+  document.head.appendChild(style);
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  var btn = el("button", "ks-qa-btn", "Ask anything");
+  var panel = el("div", "ks-qa-panel");
+  panel.appendChild(el("div", "ks-qa-header", "Questions? Ask away."));
+  var body = el("div", "ks-qa-body");
+  body.appendChild(makeMsg(
+    "Hi — ask me about pricing, integrations, security, or anything else. I'll cite the source.",
+    "bot", null));
+  panel.appendChild(body);
+
+  var form = document.createElement("form");
+  form.className = "ks-qa-input";
+  var input = document.createElement("input");
+  input.type = "text"; input.placeholder = "Type your question..."; input.autocomplete = "off";
+  var send = el("button", "", "Send"); send.type = "submit";
+  form.appendChild(input); form.appendChild(send);
+  panel.appendChild(form);
+
+  document.body.appendChild(btn);
+  document.body.appendChild(panel);
+
+  btn.addEventListener("click", function() { panel.classList.toggle("open"); });
+
+  function makeMsg(text, role, sources) {
+    var d = el("div", "ks-qa-msg " + role, text);
+    if (sources && sources.length) {
+      var s = el("div", "ks-qa-src");
+      s.appendChild(document.createTextNode("Source: "));
+      sources.forEach(function(x, i) {
+        if (i > 0) s.appendChild(document.createTextNode(" · "));
+        // Reject anything that isn't http(s)
+        var url = String(x.url || "");
+        if (!/^https?:\/\//i.test(url)) return;
+        var a = document.createElement("a");
+        a.href = url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = String(x.title || url);   // textContent — XSS-safe
+        s.appendChild(a);
+      });
+      d.appendChild(s);
+    }
+    return d;
+  }
+
+  function addMsg(text, role, sources) {
+    body.appendChild(makeMsg(text, role, sources));
+    body.scrollTop = body.scrollHeight;
+  }
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    var q = input.value.trim();
+    if (!q) return;
+    addMsg(q, "user");
+    input.value = "";
+    fetch(ENDPOINT + "/ask", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({question: q, session_id: sessionId})
+    }).then(function(r) { return r.json(); }).then(function(j) {
+      addMsg(String(j.answer || ""), "bot", j.sources);
+      if (j.out_of_scope) {
+        var email = prompt("Want me to forward this to our team? Your email:");
+        if (email) {
+          fetch(ENDPOINT + "/capture", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+              email: email, question: q,
+              transcript: body.innerText.slice(-2000)
+            })
+          }).then(function() {
+            addMsg("Got it — we'll reply by email within 24h.", "bot");
+          });
+        }
+      }
+    }).catch(function() {
+      addMsg("Something went wrong. Try again in a moment.", "bot");
+    });
+  });
+})();
+</script>

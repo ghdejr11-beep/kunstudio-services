@@ -1,0 +1,38 @@
+# Secrets / env
+.env
+.env.*
+*.env
+.secrets/
+secrets_dir/
+*.pem
+id_*
+token.json
+credentials.json
+*.token
+client_secret*.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# Data
+*.db
+*.sqlite
+*.faiss
+salesqa_chunks.json
+voice_samples.txt
+leads*.csv
+out*.csv
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.vscode/
+.idea/

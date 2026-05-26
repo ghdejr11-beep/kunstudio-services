@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>KunStudio — AI Bots that Actually Ship | Custom GPT/Claude Bots for B2B SMBs</title>
+<meta name="description" content="Stop drowning in email, follow-ups, and content. KunStudio ships custom Claude/GPT bots for B2B founders & marketers — $500-$1,500 setup + monthly retainer. Live in 1-5 days." />
+<meta name="robots" content="index,follow" />
+<meta property="og:title" content="KunStudio — AI Bots that Actually Ship" />
+<meta property="og:description" content="Custom Claude/GPT bots for B2B SMBs. Email triage, LinkedIn, CRM follow-up, sales Q&A, cold email. $500-1,500 + retainer. Live in days." />
+<meta property="og:type" content="website" />
+<style>
+  :root {
+    --navy:#0b1d3a; --gold:#c9a857; --cream:#f6f2e7; --ink:#1a1a1a;
+    --muted:#5b6479; --line:#e5e2d6;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink); background:#fff; }
+  a { color:var(--navy); }
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+  header.nav { padding:18px 0; border-bottom:1px solid var(--line); position:sticky; top:0; background:#fff; z-index:50; }
+  .nav-inner { display:flex; align-items:center; justify-content:space-between; }
+  .logo { font-weight:800; font-size:20px; color:var(--navy); letter-spacing:.5px; text-decoration:none; }
+  .nav-links a { margin-left:24px; text-decoration:none; color:var(--ink); font-weight:500; }
+  .nav-links .cta { background:var(--navy); color:#fff; padding:9px 16px; border-radius:8px; }
+  /* hero */
+  .hero { padding:84px 0 60px; background:linear-gradient(180deg,var(--cream) 0%, #fff 100%); }
+  .hero h1 { font-size:48px; line-height:1.08; margin:0 0 18px; color:var(--navy); letter-spacing:-.5px; }
+  .hero .sub { font-size:20px; color:var(--muted); max-width:720px; margin:0 0 28px; }
+  .hero .cta-row { display:flex; gap:14px; flex-wrap:wrap; }
+  .btn { display:inline-block; padding:14px 22px; border-radius:10px; font-weight:700; text-decoration:none; font-size:15px; }
+  .btn-primary { background:var(--navy); color:#fff; }
+  .btn-secondary { background:transparent; color:var(--navy); border:2px solid var(--navy); }
+  .hero .trust { margin-top:24px; color:var(--muted); font-size:14px; }
+  /* sections */
+  section { padding:72px 0; border-top:1px solid var(--line); }
+  section h2 { font-size:32px; color:var(--navy); margin:0 0 12px; letter-spacing:-.3px; }
+  section .lede { color:var(--muted); max-width:680px; font-size:17px; margin:0 0 40px; }
+  /* bot grid */
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+  .card { border:1px solid var(--line); border-radius:14px; padding:24px; transition:transform .15s, box-shadow .15s; background:#fff; }
+  .card:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(11,29,58,.08); }
+  .card .tag { display:inline-block; font-size:11px; font-weight:700; color:var(--gold); background:#fff8e6; padding:4px 10px; border-radius:999px; letter-spacing:.5px; }
+  .card h3 { color:var(--navy); margin:14px 0 8px; font-size:20px; }
+  .card p { color:var(--muted); margin:0 0 14px; font-size:14.5px; }
+  .card .price { font-weight:700; color:var(--navy); }
+  .card .price small { font-weight:500; color:var(--muted); }
+  /* portfolio */
+  .portfolio { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+  .portfolio .item { background:var(--cream); padding:24px; border-radius:14px; }
+  .portfolio .item .role { font-size:12px; color:var(--gold); font-weight:700; letter-spacing:.5px; text-transform:uppercase; }
+  .portfolio .item h3 { margin:8px 0; color:var(--navy); }
+  .portfolio .item p { color:var(--muted); margin:0 0 10px; font-size:14.5px; }
+  .portfolio .item a { color:var(--navy); font-weight:600; font-size:14px; }
+  /* how */
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+  .step { padding:20px; border-left:3px solid var(--gold); }
+  .step .num { font-weight:800; color:var(--gold); font-size:13px; letter-spacing:1px; }
+  .step h4 { margin:6px 0 8px; color:var(--navy); font-size:18px; }
+  .step p { color:var(--muted); font-size:14.5px; margin:0; }
+  /* pricing */
+  .pricing-card { border:1px solid var(--line); border-radius:14px; padding:30px; max-width:560px; margin:0 auto; }
+  .pricing-card.featured { border-color:var(--gold); border-width:2px; background:#fffdf7; }
+  .pricing-card h3 { color:var(--navy); margin:0 0 8px; }
+  .pricing-card .big { font-size:42px; color:var(--navy); font-weight:800; margin:8px 0; }
+  .pricing-card .big small { font-weight:500; font-size:18px; color:var(--muted); }
+  .pricing-card ul { padding-left:18px; color:var(--ink); }
+  .pricing-card ul li { margin:6px 0; }
+  /* contact */
+  .contact { background:var(--navy); color:#fff; padding:64px 0; }
+  .contact h2 { color:#fff; }
+  .contact .lede { color:#c5cbda; }
+  .contact .btn-primary { background:var(--gold); color:var(--navy); }
+  .contact .btn-secondary { color:#fff; border-color:#fff; }
+  /* footer */
+  footer { padding:32px 0; color:var(--muted); font-size:13px; border-top:1px solid var(--line); }
+  footer .row { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  @media (max-width:640px) {
+    .hero h1 { font-size:36px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#">KunStudio</a>
+    <nav class="nav-links">
+      <a href="#bots">Bots</a>
+      <a href="#how">How it works</a>
+      <a href="#portfolio">Portfolio</a>
+      <a class="cta" href="#contact">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>AI bots that actually ship.<br/>In days, not months.</h1>
+    <p class="sub">
+      I build production-grade Claude/GPT bots for B2B founders, sales teams, and marketers —
+      so the work that drains your week starts running itself. Live in 1-5 business days, $500 setup, $99-299/mo.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">Book a 20-min intro</a>
+      <a class="btn btn-secondary" href="#bots">See the 5 bots</a>
+    </div>
+    <p class="trust">
+      Built by the founder of <a href="https://sajuapp.app">Cheonmyeongdang</a> (sajuapp.app — Korean Saju SaaS, 9 languages)
+      and <a href="https://korlens.app">KORLENS</a> (Korea travel app, 405 native pages).
+      Production AI experience &gt; AI demos.
+    </p>
+  </div>
+</section>
+
+<section id="bots">
+  <div class="container">
+    <h2>5 bots, ready to deploy on your stack</h2>
+    <p class="lede">Each starts at $500 setup + monthly retainer. Built on Claude or GPT, on your infra or ours.
+      All include voice-matching from your past content — never generic.</p>
+    <div class="grid">
+
+      <div class="card">
+        <span class="tag">EMAIL</span>
+        <h3>Email Triage Bot</h3>
+        <p>Auto-classify your Gmail inbox into P0/P1/P2/P3, draft replies in your voice, deliver a 1-line daily digest. Saves ~30 min/day for most founders.</p>
+        <div class="price">From $500 setup · $99/mo <small>(1 inbox)</small></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">CONTENT</span>
+        <h3>LinkedIn Post Generator</h3>
+        <p>5 ready-to-publish LinkedIn posts/week in your voice, from 3-5 raw notes. Different formats: founder-story, contrarian, how-I-did-it, micro-data, question.</p>
+        <div class="price">From $500 setup · $149/mo</div>
+      </div>
+
+      <div class="card">
+        <span class="tag">SALES</span>
+        <h3>CRM Follow-up Bot</h3>
+        <p>HubSpot/Pipedrive bot that finds stale deals, picks the right angle, and drafts personalized follow-ups. Recovers 2-4 cold deals/mo for typical clients.</p>
+        <div class="price">From $700 setup · $199/mo</div>
+      </div>
+
+      <div class="card">
+        <span class="tag">CONVERSION</span>
+        <h3>Sales Q&amp;A Bot</h3>
+        <p>Chat widget on your site that answers visitor questions from your real docs — with citations. Lifts demo bookings ~12% and cuts FAQ emails by ~60%.</p>
+        <div class="price">From $500 setup · $129/mo</div>
+      </div>
+
+      <div class="card">
+        <span class="tag">OUTBOUND</span>
+        <h3>Cold Email Personalizer</h3>
+        <p>Upload lead list → get a CSV of cold emails personalized per lead (recent LinkedIn post, company news, real hook). 3-10× higher reply rates than templates.</p>
+        <div class="price">From $500 setup · $129/mo <small>(500 leads/mo)</small></div>
+      </div>
+
+      <div class="card" style="background:var(--cream); border-color:var(--gold);">
+        <span class="tag">CUSTOM</span>
+        <h3>Need something else?</h3>
+        <p>Internal-doc Q&amp;A, multilingual support agent, scheduled-report writer, candidate screening, contract redliner. If it's a clear loop with text in and text out, it's a bot.</p>
+        <div class="price">Scoped to fit · From $1,500</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="container">
+    <h2>How it works</h2>
+    <p class="lede">Most engagements go from intro call to production in under 5 business days.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">STEP 01</div>
+        <h4>20-min intro call</h4>
+        <p>Tell me the loop you want to stop doing manually. We agree on success metric, scope, and timeline.</p>
+      </div>
+      <div class="step">
+        <div class="num">STEP 02</div>
+        <h4>$250 refundable deposit</h4>
+        <p>You pay half the setup up front. If I can't deliver what we scoped, the deposit is fully refunded.</p>
+      </div>
+      <div class="step">
+        <div class="num">STEP 03</div>
+        <h4>I build &amp; ship in 1-5 days</h4>
+        <p>Deployed on your infra (or mine — Hetzner, EU/US, GDPR-compliant). You get the source code. No vendor lock-in.</p>
+      </div>
+      <div class="step">
+        <div class="num">STEP 04</div>
+        <h4>Monthly retainer</h4>
+        <p>I keep it running, tune prompts as your business changes, and ship 1-2 small upgrades each month. Cancel any month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <h2>Production AI, not demos</h2>
+    <p class="lede">I run these systems on my own products before I sell them to you.</p>
+    <div class="portfolio">
+      <div class="item">
+        <div class="role">SOLO SAAS</div>
+        <h3>Cheonmyeongdang (sajuapp.app)</h3>
+        <p>Multilingual Saju (Korean fortune) SaaS. 9 languages, AI-generated readings, Stripe + PayPal global checkout. Production since Q1 2026.</p>
+        <a href="https://sajuapp.app" target="_blank" rel="noopener">sajuapp.app →</a>
+      </div>
+      <div class="item">
+        <div class="role">TRAVEL TECH</div>
+        <h3>KORLENS (korlens.app)</h3>
+        <p>Korea travel tool: itinerary builder, food/city guides, 405 native pages × 9 languages. 6 affiliate partners live (GetYourGuide, Trip.com, Viator, Stay22, +2).</p>
+        <a href="https://korlens.app" target="_blank" rel="noopener">korlens.app →</a>
+      </div>
+      <div class="item">
+        <div class="role">SHIPPED IN HOURS</div>
+        <h3>Sori Atlas — daily YT shorts</h3>
+        <p>Fully-automated YouTube channel: Claude generates daily Korean traditional music shorts (stockpile of 60 episodes, BGM-only, copyright-clean), scheduled & published with no human touch.</p>
+        <a href="#" rel="noopener">Case study coming</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2>Pricing — simple, no surprises</h2>
+    <p class="lede">Pick a bot above for the specific pricing. Or talk to me about a custom scope.</p>
+    <div class="pricing-card featured">
+      <h3>Most clients land here</h3>
+      <div class="big">$500-$1,500 <small>setup, one-time</small></div>
+      <div class="big" style="font-size:32px;">+ $99-$299 <small>/month retainer</small></div>
+      <ul>
+        <li><strong>Setup</strong>: I build, deploy, and hand over working source code.</li>
+        <li><strong>Retainer</strong>: I keep it running, monitor errors, tune prompts, ship monthly improvements.</li>
+        <li><strong>Cancel any month</strong>. No annual lock-in. No "enterprise" upsell.</li>
+        <li><strong>$250 refundable deposit</strong> if we can't ship what we scoped.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Let's talk for 20 minutes.</h2>
+    <p class="lede">
+      Tell me one workflow you'd happily delete from your week if a bot could handle it.
+      If it's a fit, I quote you on the call. If it's not, I'll tell you straight.
+    </p>
+    <div class="cta-row" style="display:flex; gap:14px; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="https://cal.com/kunstudio/intro" target="_blank" rel="noopener">Book on Cal.com</a>
+      <a class="btn btn-secondary" href="mailto:ghdejr11@gmail.com?subject=KunStudio%20bot%20inquiry">Email me</a>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/in/hongdeokhun" target="_blank" rel="noopener">DM on LinkedIn</a>
+    </div>
+    <p style="margin-top:24px; color:#c5cbda; font-size:14px;">
+      Or skip the call &amp; pay the $250 deposit to lock a build slot:
+      <a href="#" style="color:#fff;">Stripe Payment Link (set up after launch)</a> ·
+      <a href="https://www.paypal.com" style="color:#fff;">PayPal</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container row">
+    <div>© 2026 KunStudio. Built by Hong Deokhun, Gyeongju, South Korea.</div>
+    <div>
+      <a href="https://sajuapp.app">sajuapp.app</a> ·
+      <a href="https://korlens.app">korlens.app</a> ·
+      <a href="mailto:ghdejr11@gmail.com">contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

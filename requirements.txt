@@ -1,0 +1,25 @@
+# Shared deps for all 5 bot templates
+anthropic>=0.40.0
+python-dotenv>=1.0.0
+httpx[http2]>=0.27.0
+apscheduler>=3.10.0
+
+# Email Triage Bot + CRM Follow-up
+google-api-python-client>=2.130.0
+google-auth-httplib2>=0.2.0
+google-auth-oauthlib>=1.2.0
+
+# CRM Follow-up Bot
+# (HubSpot uses plain requests via REST — no SDK required)
+requests>=2.31.0
+
+# Sales Q&A Bot
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+sentence-transformers>=3.0.0
+faiss-cpu>=1.8.0
+pydantic>=2.7.0
+
+# Cold Email Personalizer
+selectolax>=0.3.21
+pandas>=2.2.0
