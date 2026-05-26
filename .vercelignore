@@ -1,0 +1,8 @@
+templates/
+outreach/
+docs/
+requirements.txt
+*.py
+__pycache__/
+.pytest_cache/
+MANUAL_TODO.md
