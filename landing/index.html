@@ -4,11 +4,230 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>KunStudio — AI Bots that Actually Ship | Custom GPT/Claude Bots for B2B SMBs</title>
-<meta name="description" content="Stop drowning in email, follow-ups, and content. KunStudio ships custom Claude/GPT bots for B2B founders & marketers — $500-$1,500 setup + monthly retainer. Live in 1-5 days." />
+<meta name="description" content="Custom Claude/GPT bots for B2B SMBs. Email triage, LinkedIn, CRM follow-up, sales Q&A, cold email. $500-1,500 setup + $99-299/mo. Live in 1-5 business days." />
 <meta name="robots" content="index,follow" />
-<meta property="og:title" content="KunStudio — AI Bots that Actually Ship" />
-<meta property="og:description" content="Custom Claude/GPT bots for B2B SMBs. Email triage, LinkedIn, CRM follow-up, sales Q&A, cold email. $500-1,500 + retainer. Live in days." />
+<meta name="author" content="Hong Deokhun" />
+<meta name="keywords" content="custom AI bot, Claude bot, GPT bot, B2B AI automation, email triage bot, cold email personalizer, CRM follow-up bot, site Q&A bot, LinkedIn comment bot, AI consulting for solo founders" />
+<link rel="canonical" href="https://kunstudio-services.vercel.app/" />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://kunstudio-services.vercel.app/" />
+<meta property="og:site_name" content="KunStudio Services" />
+<meta property="og:title" content="KunStudio — AI Bots that Actually Ship" />
+<meta property="og:description" content="Custom Claude/GPT bots for B2B SMBs. $500-1,500 setup + $99-299/mo. Live in 1-5 business days." />
+<meta property="og:image" content="https://kunstudio-services.vercel.app/og.png" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="KunStudio — AI Bots that Actually Ship" />
+<meta name="twitter:description" content="Custom Claude/GPT bots for B2B SMBs. $500-1,500 setup + $99-299/mo retainer. Live in days, not months." />
+<meta name="twitter:image" content="https://kunstudio-services.vercel.app/og.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://kunstudio-services.vercel.app/#website",
+      "url": "https://kunstudio-services.vercel.app/",
+      "name": "KunStudio Services",
+      "description": "Custom Claude/GPT bots for B2B SMBs — live in 1-5 business days.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://kunstudio-services.vercel.app/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://kunstudio-services.vercel.app/#org",
+      "name": "KunStudio",
+      "alternateName": "KunStudio Services",
+      "url": "https://kunstudio-services.vercel.app/",
+      "logo": "https://kunstudio-services.vercel.app/logo.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Hong Deokhun",
+        "jobTitle": "Solo Founder, AI Engineer",
+        "sameAs": [
+          "https://www.linkedin.com/in/hongdeokhun",
+          "https://sajuapp.app",
+          "https://korlens.app"
+        ]
+      },
+      "foundingDate": "2026-04-01",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gyeongju",
+        "addressCountry": "KR"
+      },
+      "email": "ghdejr11@gmail.com",
+      "areaServed": "Worldwide",
+      "knowsAbout": [
+        "Claude API",
+        "OpenAI GPT",
+        "B2B AI automation",
+        "Prompt engineering",
+        "Production AI deployment",
+        "Cold email personalization",
+        "CRM automation",
+        "Retrieval-augmented generation"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kunstudio-services.vercel.app/#email-triage",
+      "serviceType": "Email Triage Bot",
+      "name": "Email Triage Bot",
+      "description": "Auto-classify Gmail inbox into P0/P1/P2/P3, draft replies in your voice, deliver 1-line daily digest. Saves ~30 min/day for most founders.",
+      "provider": { "@id": "https://kunstudio-services.vercel.app/#org" },
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "500",
+        "priceCurrency": "USD",
+        "description": "$500 one-time setup + $99/month retainer (1 inbox)",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kunstudio-services.vercel.app/#cold-email",
+      "serviceType": "Cold Email Personalizer",
+      "name": "Cold Email Personalizer",
+      "description": "Upload lead list, get CSV of cold emails personalized per lead (recent LinkedIn post, company news, real hook). 3-10x higher reply rates than templates.",
+      "provider": { "@id": "https://kunstudio-services.vercel.app/#org" },
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "1500",
+        "priceCurrency": "USD",
+        "description": "$1,500 one-time setup + $299/month retainer (500 leads/mo)",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kunstudio-services.vercel.app/#linkedin-bot",
+      "serviceType": "LinkedIn Comment Bot",
+      "name": "LinkedIn Comment Bot",
+      "description": "Drafts on-brand LinkedIn comments for target accounts in your voice. Builds presence without burning 2 hours/day scrolling.",
+      "provider": { "@id": "https://kunstudio-services.vercel.app/#org" },
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "750",
+        "priceCurrency": "USD",
+        "description": "$750 one-time setup + $149/month retainer",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kunstudio-services.vercel.app/#crm-followup",
+      "serviceType": "CRM Follow-up Bot",
+      "name": "CRM Follow-up Bot",
+      "description": "HubSpot/Pipedrive bot that finds stale deals, picks the right angle, and drafts personalized follow-ups. Recovers 2-4 cold deals/mo for typical clients.",
+      "provider": { "@id": "https://kunstudio-services.vercel.app/#org" },
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "1000",
+        "priceCurrency": "USD",
+        "description": "$1,000 one-time setup + $199/month retainer",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kunstudio-services.vercel.app/#site-qa",
+      "serviceType": "Site Q&A Bot",
+      "name": "Site Q&A Bot",
+      "description": "Chat widget on your site that answers visitor questions from your real docs with citations. Lifts demo bookings ~12% and cuts FAQ emails by ~60%.",
+      "provider": { "@id": "https://kunstudio-services.vercel.app/#org" },
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "750",
+        "priceCurrency": "USD",
+        "description": "$750 one-time setup + $149/month retainer",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://kunstudio-services.vercel.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does KunStudio Services build?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Custom Claude and GPT bots for B2B SMBs and solo founders. Five proven templates ship in 1-5 business days: Email Triage Bot, Cold Email Personalizer, LinkedIn Comment Bot, CRM Follow-up Bot, and Site Q&A Bot. Each bot is voice-matched from your past content, not generic. Setup is $500-$1,500 one-time plus $99-$299/month retainer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a Claude bot setup take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1-5 business days from kickoff to production. After the 20-minute intro call you pay a $250 refundable deposit, then I build, deploy, and hand over working source code. Most engagements ship in 3 business days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the monthly retainer for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The $99-$299/month retainer covers ongoing uptime monitoring, error alerts, prompt tuning as your business and ICP evolve, model upgrades (Claude 4.6 to 4.7 to next), and 1-2 small feature upgrades each month. You always own the source code; the retainer is for active ownership, not vendor lock-in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel anytime?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The retainer is month-to-month with no annual lock-in and no cancellation fees. If we cannot ship what we scoped in the intro call, the $250 deposit is fully refunded. You keep the source code either way."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you only work with B2B?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Primary focus is B2B SMBs, solo founders, and small marketing or sales teams (5-50 people). B2C is possible for clear text-in-text-out loops like multilingual support, contract redlining, or candidate screening, but B2B is where the bots have proven ROI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference vs hiring a freelancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most freelancers ship a demo and disappear. KunStudio runs the same systems on its own production products (sajuapp.app — Korean Saju SaaS in 9 languages; korlens.app — Korea travel tool with 405 native pages). You get production-tested patterns, ongoing ownership via the retainer, and zero vendor lock-in (source code is yours)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why Claude over OpenAI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KunStudio builds on whichever model fits the loop. Claude (Anthropic) typically wins on long-document Q&A, voice-matching from past content, and tool use with strict output formats. GPT (OpenAI) typically wins on cheap high-volume classification and certain coding tasks. Each bot uses the model that delivers the success metric for the lowest token cost."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://kunstudio-services.vercel.app/#founder",
+      "name": "Hong Deokhun",
+      "url": "https://kunstudio-services.vercel.app/",
+      "jobTitle": "Solo Founder, AI Engineer",
+      "worksFor": { "@id": "https://kunstudio-services.vercel.app/#org" },
+      "sameAs": [
+        "https://www.linkedin.com/in/hongdeokhun",
+        "https://sajuapp.app",
+        "https://korlens.app"
+      ]
+    }
+  ]
+}
+</script>
 <style>
   :root {
     --navy:#0b1d3a; --gold:#c9a857; --cream:#f6f2e7; --ink:#1a1a1a;
